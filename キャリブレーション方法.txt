@@ -1,0 +1,19 @@
+how to calibration
+
+terminal1:
+roscore
+
+terminal2:
+# 画素数widthとheightはここで設定
+rosrun usb_cam usb_cam_node _image_width:=1280 _image_height:=720
+
+
+terminal3:
+rosrun camera_calibration cameracalibrator.py --size 8x6 --square 0.035 image:=/usb_cam/image_raw
+
+・zipファイルの解凍
+tar -xvzf /tmp/calibrationdata.tar.gz
+
+・別ディレクトリへファイルの名前を変更して移動
+mv ost.yaml ”変えたい名前”.yaml
+
